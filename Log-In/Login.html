@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hayzen Login-page</title>
+  <link rel="stylesheet" href="/Log-In/Login.css" />
+  <!-- ✨ FIX: Using our new, unified notification.css file -->
+  <link rel="stylesheet" href="/Alert-Box/notification.css" />
+</head>
+<body>
+  <!-- ✨ FIX: Added containers for both types of notifications -->
+  <div id="message-box-container"></div>
+  <div id="toast-container"></div>
+
+  <div class="Login-Container">
+    <div id="logo">
+  <img src="/Log-In/login.png" alt="Login Logo" width="80" />
+    </div>
+    <h1 id="heading">Log-In</h1>
+    <form id="login_Form">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Email address" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Password" required />
+      </div>
+      <div id="login-Button">
+        <button type="submit">Log in</button>
+      </div>
+    </form>
+    <div>
+      <a href="/forgot-password">Forgot password?</a>
+    </div>
+    <hr />
+    <div id="signup-prompt">
+      Don't have an account? <a id="signup-link" href="/signup">Sign up</a>
+    </div>
+  </div>
+
+  <!-- ✨ FIX: Using our new, unified notification.js file -->
+  <script src="/Alert-Box/notification.js"></script>
+  <script src="/Log-In/Login.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup-page</title>
+  <link rel="stylesheet" href="/Sign-Up/signup.css" />
+  <link rel="stylesheet" href="/Alert-Box/notification.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+  <div id="message-box-container"></div>
+
+  <div class="form-wrapper">
+    <div class="logo-image">
+  <img class="main-logo" src="/Sign-Up/add-user.png" alt="signup" width="80" />
+    </div>
+
+    <div class="heading">
+      <h1>Sign-Up</h1>
+    </div>
+
+    <form id="signUp_Form">
+      <div class="fullName">
+        <label class="fullName" for="fullName">Full Name</label>
+        <input id="fullName" type="text" placeholder="Full name" required />
+      </div>
+
+      <div class="email">
+        <label class="email" for="email">Email Address</label>
+        <input id="email" type="email" placeholder="Email address" required />
+      </div>
+
+      <!-- Password -->
+      <div class="password-container">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input id="password" type="password" placeholder="Password" required />
+          <span class="material-icons toggle-password" id="togglePassword">visibility</span>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="password-container">
+        <label for="confirm_Password">Confirm Password</label>
+        <div class="input-wrapper">
+          <input id="confirm_Password" type="password" placeholder="Confirm password" required />
+          <span class="material-icons toggle-password" id="toggleConfirm">visibility</span>
+        </div>
+      </div>
+
+      <div class="signup_Button">
+        <button type="submit">Sign Up</button>
+      </div>
+
+      <div class="login-box">
+        Already have an account? <a href="/login">Log In</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="/Alert-Box/notification.js"></script>
+  <script src="/Sign-Up/signup.js"></script>
+</body>
+</html>

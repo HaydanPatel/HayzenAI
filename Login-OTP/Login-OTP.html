@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify OTP - Login</title>
+  <link rel="stylesheet" href="Login-OTP.css" />
+  <link rel="stylesheet" href="../Alert-Box/notification.css" />
+
+</head>
+<body>
+  <div id="message-box-container"></div>
+  <div class="otp-container">
+    <div class="logo">
+      <img src="../Assets-Logos/OTP2.png" alt="OTP Logo" width="60" />
+    </div>
+    
+    <h2>Verify Your Email</h2>
+    <p class="subtitle">Enter the 6-digit OTP sent to your email</p>
+    
+    <form id="otp-form">
+      <div class="otp-inputs">
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+      </div>
+      
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    <div class="resend">
+      Didn't receive OTP? <a href="#" id="resend-link">Resend</a>
+    </div>
+
+    <div class="back-link">
+      <a href="../Log-In/Login.html">← Back to Log-In</a>
+    </div>
+  </div>
+  <script src="../Alert-Box/notification.js"></script>
+  <script src="Login-OTP.js"></script>
+  
+</body>
+</html>

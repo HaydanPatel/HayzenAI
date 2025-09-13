@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayzen AI Assistant</title>
+    
+    <link rel="stylesheet" href="/dashboard/dashboard.css">
+    <link rel="stylesheet" href="/Alert-Box/notification.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="message-box-container"></div>
+    <div id="toast-container"></div>
+
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h1 class="sidebar-header">Hayzen AI.</h1>
+            <button class="new-chat-btn">+ New Chat</button>
+
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard" id="explore-link" class="active"><i class='bx bx-compass'></i> Explore</a></li>
+                <li><a href="/dashboard" id="use-cases-link"><i class='bx bx-briefcase'></i> Use Cases</a></li>
+                <li><a href='/dashboard' id="history-link"><i class='bx bx-history'></i> History</a></li>
+            </ul>
+
+            <ul class="sidebar-footer">
+                <li><a href="#" id="settings-link" onclick="document.querySelectorAll('.view').forEach(v=>v.classList.remove('active-view'));document.getElementById('settings-view').classList.add('active-view');this.classList.add('active');return false;"><i class='bx bx-cog'></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2><i class='bx bxs-magic-wand'></i> AI Assistant</h2>
+                <div class="header-icons">
+                    <a href="#" id="header-profile-link"><img src="avatar.jpg" alt="User Profile"></a>
+                </div>
+            </header>
+
+            <!-- Main Chat View -->
+            <div id="chat-view" class="view active-view">
+                <!-- This will be the container for all chat messages -->
+                <div id="chat-messages-container">
+                    <!-- Messages (user prompt and AI reply) will be appended here by JavaScript -->
+                </div>
+
+                <!-- Initial welcome and suggestion grid (can be hidden once chat starts) -->
+                <div id="initial-chat-content">
+                    <h1>What's on your mind today, Haydan?</h1>
+                    <div class="suggestion-grid">
+                        <button class="suggestion-btn" data-prompt="Give me blog Ideas"><i class='bx bx-sun'></i> Give me blog Ideas</button>
+                        <button class="suggestion-btn" data-prompt="Tell me a joke"><i class='bx bx-smile'></i> Tell me a joke</button>
+                        <button class="suggestion-btn" data-prompt="Plan me a trip"><i class='bx bxs-paper-plane'></i> Plan me a trip</button>
+                        <button class="suggestion-btn" data-prompt="Recommend a book"><i class='bx bx-book'></i> Recommend a book</button>
+                        <button class="suggestion-btn" data-prompt="Write an email"><i class='bx bx-envelope'></i> Write an email</button>
+                        <button class="suggestion-btn" data-prompt="What are some healthy dinner recipes?"><i class='bx bx-dots-horizontal-rounded'></i> Others</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div id="history-view" class="view">
+                <div class="panel-header">
+                    <h2>Chat History</h2>
+                    <button id="clear-history-btn" class="panel-btn">Clear All</button>
+                </div>
+                <div class="panel-content">
+                    <ul id="history-list">
+                        <!-- These initial messages are for loading/no history states -->
+                        <li class="history-message loading-message">Loading chat history...</li>
+                        <li class="history-message error-message hidden">Failed to load chat history.</li>
+                        <li class="history-message no-history-message hidden">No chat history found yet!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div id="settings-view" class="view">
+                <div class="panel-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="panel-content">
+                    <!-- Account Settings -->
+                    <h3 class="setting-category">Account</h3>
+                    <div class="setting-item">
+                        <label for="enable-2fa-toggle">Enable 2FA (Two-Factor Auth)</label>
+                        <label class="switch"><input type="checkbox" id="enable-2fa-toggle"><span class="slider round"></span></label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Change Password</label>
+                        <button id="change-password-btn" class="panel-btn">Change</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>Logout</label>
+                        <button id="logout-btn" class="panel-btn danger">Logout</button>
+                    </div>
+
+                    <!-- Appearance Settings -->
+                    <h3 class="setting-category">Appearance</h3>
+                    <div class="setting-item">
+                        <label for="dark-mode-toggle">Dark Mode</label>
+                        <label class="switch"><input type="checkbox" id="dark-mode-toggle"><span class="slider round"></span></label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <form id="chat-form" class="input-form">
+                    <div class="input-wrapper">
+                        <textarea id="chat-input" placeholder="Ask me anything" rows="1"></textarea>
+                        <button type="submit" class="send-btn"><i class='bx bxs-send'></i></button>
+                    </div>
+                    <div class="input-actions">
+                        <button type="button" id="attach-btn" class="action-btn"><i class='bx bx-paperclip'></i> Attach</button>
+                        <button type="button" id="voice-btn" class="action-btn"><i class='bx bxs-microphone'></i> Voice Message</button>
+                        <button type="button" id="prompts-btn" class="action-btn"><i class='bx bx-grid-alt'></i> Browse Prompts</button>
+                        <span id="char-count">0/3000</span>
+                    </div>
+                </form>
+                <p class="footer-disclaimer">Hayzen AI may provide responses that aren't always accurate. Please verify critical information. Our Privacy. Hayzen AI here.</p>
+            </div>
+            
+        </main>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="change-password-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 class="modal-title">Change Password</h3>
+            <span class="modal-close-btn">&times;</span>
+            <form id="change-password-form">
+                <div class="modal-form-group">
+                    <label for="current-password">Current Password:</label>
+                    <input type="password" id="current-password" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" required minlength="6">
+                </div>
+                <div class="modal-form-group">
+                    <label for="confirm-new-password">Confirm New Password:</label>
+                    <input type="password" id="confirm-new-password" required minlength="6">
+                </div>
+                <p id="password-match-error" class="error-text hidden">Passwords do not match.</p>
+                <button type="submit" class="modal-submit-btn">Update Password</button>
+            </form>
+            <p id="change-password-message" class="modal-message"></p>
+        </div>
+    </div>
+
+    <!-- 2FA OTP Verification Modal -->
+    <div id="two-factor-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 class="modal-title" id="two-factor-modal-title">Confirm 2FA Action</h3>
+            <span class="modal-close-btn">&times;</span>
+            <form id="two-factor-form">
+                <p id="two-factor-message-prompt" class="modal-message">An OTP has been sent to your email. Please enter it to confirm.</p>
+                <div class="modal-form-group">
+                    <label for="two-factor-otp">Enter OTP:</label>
+                    <input type="text" id="two-factor-otp" required maxlength="6" pattern="\d{6}" title="Please enter a 6-digit OTP">
+                </div>
+                <button type="submit" class="modal-submit-btn">Verify OTP</button>
+            </form>
+            <p id="two-factor-status-message" class="modal-message"></p>
+        </div>
+    </div>
+
+
+    <script src="/Alert-Box/notification.js"></script>
+    <script src="/dashboard/dashboard.js"></script>
+</body>
+</html>

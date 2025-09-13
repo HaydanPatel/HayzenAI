@@ -1,0 +1,151 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:#b0d8f0;
+}
+
+/* Main container */
+.form-wrapper {
+    background-color: #ffffff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 330px;
+}
+
+/* Logo */
+.logo-image {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.main-logo {
+    border-radius: 50%;
+}
+
+/* Login box under logo */
+.logo-image .login-box {
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f0f8ff;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #333;
+}
+
+.logo-image .login-box a {
+    color: #1e90ff;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.logo-image .login-box a:hover {
+    text-decoration: underline;
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.heading h1 {
+    font-size: 1.6rem;
+    color: #1e90ff;
+}
+
+/* Form fields aligned left */
+.fullName,
+.email,
+.password,
+.confirm_Password {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.45rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: border 0.2s ease;
+}
+
+input:focus {
+    border-color: #1e90ff;
+    outline: none;
+}
+
+/* Signup button */
+.signup_Button {
+    margin-top: 0.4rem;
+    width: 100%;
+}
+
+.signup_Button button {
+    width: 100%;
+    padding: 0.55rem;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.signup_Button button:hover {
+    background-color: #1c86ee;
+}
+
+/* 🆕 Password Icon Toggle Styles */
+.password-container {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    padding-right: 2.2rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 20px;
+    user-select: none;
+}

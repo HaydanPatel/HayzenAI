@@ -1,0 +1,92 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#b0d8f0;
+}
+
+/* Main container */
+.Login-Container {
+    text-align: center; /* Keeps everything centered except email & password */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Logo */
+#logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Heading */
+#heading {
+    margin-bottom: 20px;
+    color: #1e90ff;
+}
+
+/* Email and Password fields (left-aligned) */
+div label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 8px; /* Increased margin-bottom for better spacing */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px; /* Added more space between input fields */
+}
+
+/* Login button */
+#login-Button {
+    margin: 15px 0;
+}
+
+#login-Button button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-Button button:hover {
+    background-color: #0056b3;
+}
+
+/* Forgot password */
+div a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Sign-up section */
+#signup-prompt {
+    margin-top: 15px;
+}
+
+#signup-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#signup-link:hover {
+    text-decoration: underline;
+}
